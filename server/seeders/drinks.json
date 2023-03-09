@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Lemonade",
+        "price": 2.99,
+        "inStock": true
+    },
+    {
+        "name": "Iced Tea",
+        "price": 2.49,
+        "inStock": true
+    },
+    {
+        "name": "Canned Soda",
+        "price": 1.99,
+        "inStock": true
+    },
+    {
+        "name": "Coffee",
+        "price": 2.99,
+        "inStock": true
+    },
+    {
+        "name": "Hot Chocolate",
+        "price": 3.49,
+        "inStock": false
+    },
+    {
+        "name": "Smoothie",
+        "price": 4.99,
+        "inStock": true
+    },
+    {
+        "name": "Horchata",
+        "price": 4.99,
+        "inStock": true
+    },
+    {
+        "name": "Mexican Coke",
+        "price": 3.99,
+        "inStock": true
+    }
+]
