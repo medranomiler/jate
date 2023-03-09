@@ -8,8 +8,8 @@ function Login() {
         
         <div className="flex items-center justify-center h-[80vh] bg-">
         <div className=" grid grid-cols-8 w-[80vw] shadow-2xl">
-            <div className="col-span-5 bg-white border h-[70vh] ">
-               <h1 className="text-3xl flex justify-center items-center py-20 text-[#5a0c1d]">
+            <div className="col-span-5 bg-white border h-[65vh] ">
+               <h1 className="text-5xl font-serif flex justify-center items-center py-16 text-[#5a0c1d]">
                 Welcome Back friend!
                 </h1>
                
@@ -61,7 +61,7 @@ function Login() {
 
             </div>
             <div className="col-span-3 bg-[#5a0c1d]">
-                <h1 className=" flex justify-center items-center text-6xl font-extrabold text-center text-white mt-[17vh] mb-14">
+                <h1 className=" flex justify-center items-center text-6xl font-extrabold text-center text-white mt-[15vh] mb-14">
                     First Time<br></br> Here?
                 </h1>
                 <p className="mx-12 flex justify-center items-center text-xl text-center text-white mb-24">
