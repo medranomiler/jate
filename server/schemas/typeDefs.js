@@ -4,19 +4,19 @@ const typeDefs = gql`
   type Taco {
     _id: ID
     name: String
-    price: Int
+    price: Float
   }
 
   type Drink {
     _id: ID
     name: String
-    price: Int
+    price: Float
   }
 
   type Alcohol {
     _id: ID
     name: String
-    price: Int
+    price: Float
   }
 
   type Query {
