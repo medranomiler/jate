@@ -1,62 +1,50 @@
 [
     {
         "name": "Classic Beef Taco",
-        "price": 2.99,
-        "inStock": true
+        "price": 2.99
     },
     {
         "name": "Grilled Chicken Taco",
-        "price": 3.49,
-        "inStock": true
+        "price": 3.49
     },
     {
         "name": "Fish Taco",
-        "price": 3.99,
-        "inStock": true
+        "price": 3.99
     },
     {
         "name": "Veggie Taco",
-        "price": 2.99,
-        "inStock": true
+        "price": 2.99
     },
     {
         "name": "Pork Carnitas Taco",
-        "price": 3.99,
-        "inStock": true
+        "price": 3.99
     },
     {
         "name": "Shrimp Taco",
-        "price": 4.49,
-        "inStock": true
+        "price": 4.49
     },
     {
         "name": "Bacon and Egg Taco",
-        "price": 3.49,
-        "inStock": true
+        "price": 3.49
     },
     {
         "name": "Potato and Chorizo Taco",
-        "price": 3.99,
-        "inStock": true
+        "price": 3.99
     },
     {
         "name": "Sausage and Cheese Taco",
-        "price": 2.99,
-        "inStock": true
+        "price": 2.99
     },
     {
         "name": "Bean and Cheese Taco",
-        "price": 2.49,
-        "inStock": true
+        "price": 2.49
     },
     {
         "name": "Migas Taco",
-        "price": 4.49,
-        "inStock": true
+        "price": 4.49
     },
     {
         "name": "Pico de Gallo and Egg Taco",
-        "price": 3.99,
-        "inStock": true
+        "price": 3.99
     }
 ]
