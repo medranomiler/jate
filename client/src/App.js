@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/Navbar';
-import Login from './components/Login';
-import Signup from './components/Signup';
+import Navbar from './pages/Navbar';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+
 
 function App() {
   return (

@@ -1,6 +1,5 @@
 import React from "react";
 import { GiTacos } from 'react-icons/gi'
-
 function Navbar () {
 
     return (
