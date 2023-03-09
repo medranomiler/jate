@@ -17,4 +17,4 @@ const alcoholSchema = new Schema({
 
 const Alcohol = model('Alcohol', alcoholSchema);
 
-module.exports = Taco;
+module.exports = Alcohol;
