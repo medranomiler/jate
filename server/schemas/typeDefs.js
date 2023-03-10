@@ -28,7 +28,14 @@ const typeDefs = gql`
     alcohol(alcoholId: ID!): Alcohol
 
   }
+type Mutation {
+  addTaco(name: String!, price: Float): Taco
+  addDrink(name: String!, price: Float): Drink
+  addAlcohol(name: String!, price: Float): Alcohol
+  addUser(username: String!, email: String!, password: String!): Auth
 
+
+}
 `;
 
 module.exports = typeDefs;
