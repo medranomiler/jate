@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Alcohol, Drink, Taco } = require("../models");
+const { Alcohol, Drink, Taco, User } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -22,6 +22,9 @@ const resolvers = {
         taco: async (parent, { tacoId }) => {
             return Taco.findOne({ _id: tacoId })
         },
+        users: async () => {
+            return User.find();
+          },
     },
 
 
@@ -31,34 +34,44 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
           },
-        // addTaco: async (parent, args, context) => {
-        //     if (context.user) {
-        //       const taco = await Taco.create({
-        //         name: args.name,
-        //         price: args.price
-
-        //       });
-
-        //       await User.findOneAndUpdate(
-        //         { _id: context.user._id },
-        //         { $addToSet: { thoughts: thought._id } }
-        //       );
-
-        //       return thought;
-        //     }
-        //     throw new AuthenticationError('You need to be logged in!');
-        //   },
+          login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+      
+            if (!user) {
+              throw new AuthenticationError('No user found with this email address');
+            }
+      
+            const correctPw = await user.isCorrectPassword(password);
+      
+            if (!correctPw) {
+              throw new AuthenticationError('Incorrect credentials');
+            }
+      
+            const token = signToken(user);
+      
+            return { token, user };
+          },
         addTaco: async (parent, args, context) => {
-            
-            const taco = await Taco.create({
+            if (context.user) {
+              const taco = await Taco.create({
                 name: args.name,
                 price: args.price
 
-            });
-            return taco;
-        
-    },
-    addDrink: async (parent, args, context) => {
+              });
+
+              return taco;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+          },
+        // addTaco: async (parent, args, context) => {
+            
+        //     const taco = await Taco.create({
+        //         name: args.name,
+        //         price: args.price
+
+        //     });
+        //     return taco;
+        addDrink: async (parent, args, context) => {
             
         const drink = await Drink.create({
             name: args.name,
@@ -68,7 +81,7 @@ const resolvers = {
         return drink;
     
 },
-addAlcohol: async (parent, args, context) => {
+   addAlcohol: async (parent, args, context) => {
             
     const alcohol = await Alcohol.create({
         name: args.name,
@@ -77,7 +90,10 @@ addAlcohol: async (parent, args, context) => {
     });
     return alcohol;
 
+}, 
 },
-    }
+    
+
 }
+
 module.exports = resolvers;
