@@ -1,101 +1,71 @@
-import React from "react";
-import tacos from '../images/tacos1.png'
-import '../styles/Navbar.css'
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { Link } from 'react-router-dom';
+import { LOGIN } from '../utils/mutations';
+import Auth from '../utils/auth';
 
-function Login() {
-    return (
-        <div  className="background"> 
-        
-        <div className="flex items-center justify-center h-[80vh] bg-">
-        <div className=" grid grid-cols-8 w-[80vw] shadow-2xl">
-            <div className="col-span-5 bg-white border h-[65vh] ">
-               <h1 className="text-5xl font-serif flex justify-center items-center py-16 text-[#5a0c1d]">
-                Welcome Back friend!
-                </h1>
-               
-               <h1 className="text-[2.5rem] text-[#5a0c1d] font-extrabold text-center mb-10">Login to Your Account</h1>
+function Login(props) {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN);
 
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const mutationResponse = await login({
+        variables: { email: formState.email, password: formState.password },
+      });
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-<div class="flex items-center justify-center">
-  <div class="bg-white p-8 border-l-[10px] border-b-[10px] border-[#dfa196] ">
-    
-    <form>
-      <div class="mb-4">
-        <label class="block text-gray-700 font-bold mb-1 " for="username">
-          
-        </label>
-        <input
-          class=" w-[350px] border-2 border-gray-300 p-2 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-          id="username"
-          name="username"
-          type="text"
-          placeholder="Username"
-          required>
-        </input>
-      </div>
-      <div class="mb-6">
-        <label class="block text-gray-700 font-bold mb-1 " for="password">
-          
-        </label>
-        <input
-          class="w-[350px] border-2 border-gray-300 p-2 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-          id="password"
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-        />
-      </div>
-      <div class="flex items-center justify-center">
-        <button
-          class="w-[200px] rounded-3xl bg-[#5a0c1d] hover:bg-[#a21634] text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline"
-          type="submit"
-        >
-          Sign In
-        </button>
-        
-      </div>
-    </form>
-  </div>
-</div>
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
-            </div>
-            <div className="col-span-3 bg-[#5a0c1d]">
-                <h1 className=" flex justify-center items-center text-6xl font-extrabold text-center text-white mt-[15vh] mb-14">
-                    First Time<br></br> Here?
-                </h1>
-                <p className="mx-12 flex justify-center items-center text-xl text-center text-white mb-24">
-                    Sign up and become a member today for discounts, updates, and plenty more!
-                </p>
+  return (
+    <div className="container my-1">
+      <Link to="/signup">← Go to Signup</Link>
 
-                <div class="flex items-center justify-center">
-        <button
-          class="w-[200px] rounded-3xl text-[#5a0c1d] hover:bg-[#a21634] hover:text-white hover:border-2 hover:border-white bg-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline"
-          type="submit"
-        >
-          Sign Up
-        </button>
-        
-      </div>
-
-            </div>
-
-            </div>
+      <h2>Login</h2>
+      <form onSubmit={handleFormSubmit}>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="email">Email address:</label>
+          <input
+            placeholder="youremail@test.com"
+            name="email"
+            type="email"
+            id="email"
+            onChange={handleChange}
+          />
         </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="pwd">Password:</label>
+          <input
+            placeholder="******"
+            name="password"
+            type="password"
+            id="pwd"
+            onChange={handleChange}
+          />
         </div>
-        
-    )
+        {error ? (
+          <div>
+            <p className="error-text">The provided credentials are incorrect</p>
+          </div>
+        ) : null}
+        <div className="flex-row flex-end">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  );
 }
 
 export default Login;
-
-
-
-// [#5a0c1d]
-
-// forgot password code below if we need it
-
-
-{/* <a class="inline-block align-baseline font-bold text-sm text-[#7d1234] hover:text-[#5a0c1d]" href="#">
-          Forgot Password?
-        </a> */}
