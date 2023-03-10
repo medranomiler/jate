@@ -2,7 +2,7 @@ import React from "react"
 
 function Checkout(){
     return(
-        <div>
+        <div class="m-4">
         <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">Checkout</h1>
         <strong class="font-semibold text-gray-900">Have an account?</strong> <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Log in</a>
         <br/>
@@ -79,7 +79,7 @@ function Checkout(){
             </tr>
         </tbody>
         <tfoot>
-            <tr class="font-semibold text-gray-900">
+            <tr class="font-semibold text-gray-900 bg-gray-400">
                 <th scope="row" class="px-6 py-3 text-base">Total</th>
                 <td class="px-6 py-3">3</td>
                 <td class="px-6 py-3">20.45</td>
@@ -88,7 +88,7 @@ function Checkout(){
     </table>
 </div>
 </div>
-<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-2">Submit</button>
 </form>
 </div>
     )
