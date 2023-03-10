@@ -27,6 +27,7 @@ const typeDefs = gql`
   }
 
   type Query {
+    users: [User]
     tacos: [Taco]!
     taco(tacoId: ID!): Taco
     drinks: [Drink]!

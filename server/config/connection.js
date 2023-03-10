@@ -1,6 +1,7 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://medranomiler:root1234@cluster0.kuljfho.mongodb.net/jate', {
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGODEV, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
