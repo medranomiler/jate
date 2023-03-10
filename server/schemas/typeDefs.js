@@ -1,6 +1,13 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
+  type User {
+    _id: ID
+    username: String
+    email: String
+    password: String
+  }
+
   type Taco {
     _id: ID
     name: String
@@ -26,9 +33,7 @@ const typeDefs = gql`
     drink(drinkId: ID!): Drink
     alcohols: [Alcohol]!
     alcohol(alcoholId: ID!): Alcohol
-
   }
-
 `;
 
 module.exports = typeDefs;
