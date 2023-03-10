@@ -41,7 +41,6 @@ function App() {
     <ApolloProvider client={client}>
 
     <div>
-
       <Navbar />
       <Signup />
       <Login />
